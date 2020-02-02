@@ -1,22 +1,28 @@
 {
-  "name": "prolapse-babel",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^13.7.0",
-    "@typescript-eslint/eslint-plugin": "^2.18.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^1.19.1",
-    "typescript": "^3.7.5"
-  }
+    "name": "prolapse-babel",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist-cjs/index.js",
+    "module": "dist-esm/index.js",
+    "types": "dist-cjs/index.d.ts",
+    "scripts": {
+        "build": "npm-run-all -s build:cjs build:esm",
+        "build:cjs": "tsc --project . --module commonjs --outDir ./dist-cjs",
+        "build:esm": "tsc --project . --module es2015 --outDir ./dist-esm",
+        "lint": "eslint .",
+        "fix": "eslint --fix ."
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^13.7.0",
+        "@typescript-eslint/eslint-plugin": "^2.18.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^1.19.1",
+        "typescript": "^3.7.5"
+    }
 }
